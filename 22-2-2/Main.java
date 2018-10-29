@@ -3,25 +3,22 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        long n=123458754321L;
-        boolean pal=false;
-        byte b=0;
-        byte i=0;
-        byte[]arr=new byte[25];
+        long number=12345844321L;
+        long rebmun=0;
+        long temp=number;
+        int n=0;
+        while(number>0) {
+            number /= 10;
+            n++;
+        }
+        number=temp;
         while(n>0){
-            arr[b]=(byte)(n%10);
-            n/=10;
-            b++;
+            rebmun+=number%10*Math.pow(10,n);
+            number/=10;
+            n--;
+
         }
-        b--;
-        while(i!=b/2&arr[i]==arr[b]){
-            i++;
-            b--;
-        }
-        if(i==b/2){
-            pal=true;
-        }
-        System.out.println(pal);
+        System.out.println(number==rebmun);
     }
 }
 
