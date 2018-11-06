@@ -7,7 +7,7 @@ import java.util.Random;
 //class generates random range array of double an has methods for search max and min elements of array
 // and method for printing out array
 public class Extrem {
-    private final static Logger log=Logger.getLogger(Extrem.class);
+    private final static Logger log=LogManager.getLogger(Extrem.class);
     private Random r=new Random();
     private double[]arr;
 
