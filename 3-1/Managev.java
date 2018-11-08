@@ -204,11 +204,11 @@ public class Managev {
                 arr[i]=arr[i]-arr[arr.length-i-1];
             }
         }
-        return 0;
+        return arr;
     }
 
     //bubble
-    public double[] quickSort(double[]arr){
+    public double[] bubble(double[]arr){
         int temp=0;
         double[]array={};
         if(arr.length==0){
@@ -216,6 +216,7 @@ public class Managev {
         }
         else{
             do{
+                temp=0;
                 for(int i=1;i<arr.length;i++){
                     if(arr[i]<arr[i-1]){
                         arr[i]+=arr[i-1];
@@ -250,6 +251,7 @@ public class Managev {
                         arr[j] = arr[j] - arr[j - step];
                     }
                 }
+                step/=2;
             }
         }
         return arr;
