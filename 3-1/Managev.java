@@ -204,7 +204,7 @@ public class Managev {
                 arr[i]=arr[i]-arr[arr.length-i-1];
             }
         }
-        return 0;
+        return arr;
     }
 
     //bubble
