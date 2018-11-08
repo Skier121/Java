@@ -176,7 +176,6 @@ public class Managem {
             log.warn("Empty matrix");
             throw new IOException("Bad input data");
         }
-        double[][]array=new double[arr.length][arr[0].length];
         for(int i=0;i<arr.length;i++){
             for(int j=i;j<arr[i].length;j++){
                 arr[i][j]+=arr[j][i];
