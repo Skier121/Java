@@ -208,7 +208,7 @@ public class Managev {
     }
 
     //bubble
-    public double[] quickSort(double[]arr){
+    public double[] bubble(double[]arr){
         int temp=0;
         double[]array={};
         if(arr.length==0){
