@@ -251,6 +251,7 @@ public class Managev {
                         arr[j] = arr[j] - arr[j - step];
                     }
                 }
+                step/=2;
             }
         }
         return arr;
