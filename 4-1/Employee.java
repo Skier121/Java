@@ -4,16 +4,25 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 public class Employee {
-    private String firstName;
-    private String lastName;
-    private String profession;
-    private BigDecimal salary;
-    private String project;
+    protected String firstName;
+    protected String lastName;
+    protected String profession;
+    protected BigDecimal salary;
+    protected String project;
 
     public Employee(String firstName,String lastName)throws IOException{
         setFirstName(firstName);
         setLastName(lastName);
     }
+
+    public Employee(){
+        this.firstName="";
+        this.lastName="";
+        this.profession="";
+        this.salary=new BigDecimal(0);
+        this.project="";
+    }
+
     public String getFirstName() {
         return firstName;
     }

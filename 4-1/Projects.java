@@ -29,11 +29,16 @@ public class Projects {
     public Project findProject(String name){
         log.info("try to find Project :"+name);
         Iterator<Project> projectIterator=projects.iterator();
-        while(projectIterator.hasNext()){
-            if(projectIterator.next().getProjectName().equalsIgnoreCase(name)){
-                return projectIterator.next();
+        for(Project p:projects){
+            if(p.getProjectName().equals(name)){
+                return p;
             }
         }
         return new Project();
     }
+
+    public void delete(String name){
+        projects.remove(findProject(name));
+    }
+
 }

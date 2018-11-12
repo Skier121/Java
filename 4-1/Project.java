@@ -1,19 +1,27 @@
 package project_;
 
+import employee.Employee;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Project{
     private final static Logger log=LogManager.getLogger(Project.class);
 
+    private String projectName;
+    private BigDecimal projectFounds;
+    private long projectLifetime;
+    private ArrayList<Employee> team;
     public Project(){
         this.projectName="";
         this.projectFounds=new BigDecimal(0);
         this.projectLifetime=0L;
+        this.team=null;
     }
     public Project(String projectName, BigDecimal projectFounds, long projectLifeTime)throws IOException {
         log.info("attempt to create new Project( "+projectName+", "+projectFounds+", "+projectLifeTime+")");
@@ -21,10 +29,6 @@ public class Project{
         setProjectFounds(projectFounds);
         setProjectLifetime(projectLifeTime);
     }
-
-    private String projectName;
-    private BigDecimal projectFounds;
-    private long projectLifetime;
 
     public String getProjectName() {
         return projectName;

@@ -11,5 +11,6 @@ public class Main {
 		Projects pj=new Projects();
 		pj.addProject("St",new BigDecimal(55),749);
 		Project p=pj.findProject("St");
+		System.out.println(p.toString());
     }
 }
