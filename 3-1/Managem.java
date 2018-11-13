@@ -80,7 +80,7 @@ public class Managem {
             log.warn("Empty array");
             throw new IOException("Bad input data");
         } else {
-            double sum = 0;
+            double sum = 1;
             int elem=0;
             for(int i=0;i<arr.length;i++){
                 for(int j=0;j<arr[i].length;j++) {
