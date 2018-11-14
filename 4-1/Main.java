@@ -1,16 +1,15 @@
 package by.epam.javatraining.baranov.tasks;
 
-import project_.Project;
-import project.Projects;
+import employee.Employee;
 
-import java.math.BigDecimal;
+import employees.Employees;
 
 public class Main {
 
     public static void main(String[] args) {
-		Projects pj=new Projects();
-		pj.addProject("St",new BigDecimal(55),749);
-		Project p=pj.findProject("St");
-		System.out.println(p.toString());
-    }
+    	Employees companyN=new Employees();
+    	Employees newTeam=new Employees();
+    	companyN.addEmployee("Rt","Bh","developer",2000.0,"Ff");
+    	companyN.printAll();
+	}
 }

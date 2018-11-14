@@ -7,20 +7,35 @@ public class Employee {
     protected String firstName;
     protected String lastName;
     protected String profession;
-    protected BigDecimal salary;
+    protected double salary;
     protected String project;
+
+    //default constructor
+    public Employee(){
+        this.firstName="";
+        this.lastName="";
+        this.profession="";
+        this.salary=0.0;
+        this.project="";
+    }
 
     public Employee(String firstName,String lastName)throws IOException{
         setFirstName(firstName);
         setLastName(lastName);
     }
 
-    public Employee(){
-        this.firstName="";
-        this.lastName="";
-        this.profession="";
-        this.salary=new BigDecimal(0);
-        this.project="";
+    public Employee(String firstName,String lastName,String profession,double salary,String project)throws IOException{
+        setFirstName(firstName);
+        setLastName(lastName);
+        this.profession=profession;
+        this.salary=salary;
+        this.project=project;
+    }
+
+    @Override
+    public String toString(){
+        return ("first name: "+firstName+"\nlast name: "+lastName+"\nprofession: "+profession+"\nsalary: "+salary+
+                "\nproject:"+project);
     }
 
     public String getFirstName() {
@@ -62,12 +77,12 @@ public class Employee {
         }
     }
 
-    public BigDecimal getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) throws IOException {
-        if(salary.doubleValue()<=0){
+    public void setSalary(double salary) throws IOException {
+        if(salary<=0.0){
             throw new IOException("wrong salary value");
         }
         else {
