@@ -1,9 +1,11 @@
 package employee;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 public class Employee {
+    private final static Logger log= LogManager.getLogger(Employee.class);
     protected String firstName;
     protected String lastName;
     protected String profession;
@@ -12,6 +14,7 @@ public class Employee {
 
     //default constructor
     public Employee(){
+        log.info("empty Employee creation");
         this.firstName="";
         this.lastName="";
         this.profession="";
@@ -19,17 +22,13 @@ public class Employee {
         this.project="";
     }
 
-    public Employee(String firstName,String lastName)throws IOException{
-        setFirstName(firstName);
-        setLastName(lastName);
-    }
 
     public Employee(String firstName,String lastName,String profession,double salary,String project)throws IOException{
         setFirstName(firstName);
         setLastName(lastName);
-        this.profession=profession;
-        this.salary=salary;
-        this.project=project;
+        setProfession(profession);
+        setSalary(salary);
+        setProject(project);
     }
 
     @Override
@@ -57,6 +56,7 @@ public class Employee {
 
     public void setLastName(String lastName)throws IOException {
         if(lastName.length()==0){
+            log.warn("attempt to add emty name");
             throw new IOException("wrong name length");
         }
         else{
@@ -70,6 +70,7 @@ public class Employee {
 
     public void setProfession(String profession)throws IOException {
         if(profession.length()==0){
+            log.warn("attempt to add empty profession");
             throw new IOException("wrong profession length");
         }
         else{
@@ -83,6 +84,7 @@ public class Employee {
 
     public void setSalary(double salary) throws IOException {
         if(salary<=0.0){
+            log.warn("attempt to add salary: "+salary);
             throw new IOException("wrong salary value");
         }
         else {
@@ -96,6 +98,7 @@ public class Employee {
 
     public void setProject(String project) throws IOException {
         if(project.length()==0){
+            log.warn("attempt to add empty project");
             throw new IOException("enter project name");
         }
         else{

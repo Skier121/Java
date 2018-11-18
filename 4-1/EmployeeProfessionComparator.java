@@ -14,4 +14,3 @@ public class EmployeeProfessionComparator implements Comparator<Employee> {
         return e1.getProfession().compareTo(e2.getProfession());
     }
 }
-
