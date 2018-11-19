@@ -5,9 +5,7 @@ import employeeSalaryComparator.EmployeeSalaryComparator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
+import java.util.*;
 
 
 public class Employees {
@@ -31,6 +29,8 @@ public class Employees {
             log.warn("unsuccesfull attemp to read file from: "+path);
         }catch(IOException e){
             log.warn("IOException. while reading: "+path);
+        }catch(NumberFormatException e){
+            log.warn("attempt to input uncorrect number");
         }
         return 1;
     }
@@ -123,5 +123,17 @@ public class Employees {
         employees.remove(findEmployee(fName,lName));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employees employees1 = (Employees) o;
+        return Objects.equals(employees, employees1.employees);
+    }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(employees);
+    }
 }

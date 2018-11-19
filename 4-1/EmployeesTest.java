@@ -1,15 +1,21 @@
 package employees;
 
 import employee.Employee;
+import employeeProfessionComparator.EmployeeProfessionComparator;
+import employeeSalaryComparator.EmployeeSalaryComparator;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static org.junit.Assert.*;
 
 public class EmployeesTest {
+    EmployeeSalaryComparator esc=new EmployeeSalaryComparator();
+    EmployeeProfessionComparator epc=new EmployeeProfessionComparator();
     Employees companyN=new Employees();
     Employees companyM=new Employees();
     Employee e1=new Employee("Rt","Bh","developer",2000.0,"Ff");
@@ -55,7 +61,17 @@ public class EmployeesTest {
 
     @Test
     public void sort() {
-
+        Employees companyN=new Employees();
+        Employees companyM=new Employees();
+        companyM.filFromFile(new File("D:\\work\\GitHub\\Java\\4-1\\data.txt"));
+        companyN.addEmployee("Rt","Bh","developer",2000.0,"Ff");
+        companyN.addEmployee("Rt5","Bh5","developer",2100.0,"Ff");
+        companyN.addEmployee("Rt2","Bh2","developer",2500.0,"Ff");
+        companyN.addEmployee("Rt1","Bh1","developer",3000.0,"Ff");
+        companyN.addEmployee("Rt3","Bh3","developer",4000.0,"Ff");
+        companyN.addEmployee("Rt4","Bh4","developer",6000.0,"Ff");
+        companyM.sort();
+        assertEquals(companyM,companyN);
 
     }
 
@@ -67,20 +83,24 @@ public class EmployeesTest {
     @Test
     public void addEmployee1() {
         companyM.filFromFile(new File("D:\\work\\GitHub\\Java\\4-1\\data.txt"));
-        assertEquals(1,companyN.addEmployee(companyM.findEmployee("Rt","Bh")))
-        ;
+        assertEquals(1,companyN.addEmployee(companyM.findEmployee("Rt","Bh")));
     }
 
-    @Test
-    public void print() {
-    }
-
-    @Test
-    public void printAll() {
-    }
 
     @Test
     public void delete() {
+        Employees companyN=new Employees();
+        Employees companyM=new Employees();
+        companyM.filFromFile(new File("D:\\work\\GitHub\\Java\\4-1\\data.txt"));
+        companyN.addEmployee("Rt","Bh","developer",2000.0,"Ff");
+        companyN.addEmployee("Rt5","Bh5","developer",2100.0,"Ff");
+        companyN.addEmployee("Rt2","Bh2","developer",2500.0,"Ff");
+        companyN.addEmployee("Rt1","Bh1","developer",3000.0,"Ff");
+        companyN.addEmployee("Rt3","Bh3","developer",4000.0,"Ff");
+        companyN.addEmployee("Rt4","Bh4","developer",6000.0,"Ff");
+        companyM.sort();
+        companyM.delete("Rt","Bh");
+        assertNotSame(companyM,companyN);
     }
 
 }

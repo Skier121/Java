@@ -4,4 +4,3 @@ Rt2,Bh2,developer,2500.0,Ff
 Rt3,Bh3,developer,4000.0,Ff
 Rt4,Bh4,developer,6000.0,Ff
 Rt5,Bh5,developer,2100.0,Ff
-Rt6,,Bh6,ewgqeg,wertq,Ff
